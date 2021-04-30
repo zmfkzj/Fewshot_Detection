@@ -540,7 +540,7 @@ def get_image_size(fname):
         head = fhandle.read(24)
         if len(head) != 24: 
             return
-        if imghdr.what(fname) == 'png':
+        if imghdr.what(fname) == 'PNG':
             check = struct.unpack('>i', head[4:8])[0]
             if check != 0x0d0a1a0a:
                 return

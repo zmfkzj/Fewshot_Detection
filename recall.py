@@ -37,7 +37,7 @@ def eval_list(cfgfile, weightfile, imglist):
         lineId = lineId + 1
         lab_path = img_path.replace('images', 'labels')
         lab_path = lab_path.replace('JPEGImages', 'labels')
-        lab_path = lab_path.replace('.jpg', '.txt').replace('.png', '.txt')
+        lab_path = lab_path.replace('.jpg', '.txt').replace('.PNG', '.txt')
         #truths = read_truths(lab_path)
         truths = read_truths_args(lab_path, min_box_scale)
         #print(truths)

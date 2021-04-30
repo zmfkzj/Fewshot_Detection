@@ -10,8 +10,8 @@ from torch.autograd import Variable
 
 cfgfile = 'face4.1re_95.91.cfg'
 weightfile = 'face4.1re_95.91.conv.15'
-imgpath = 'data/train/images/10002.png'
-labpath = imgpath.replace('images', 'labels').replace('JPEGImages', 'labels').replace('.jpg', '.txt').replace('.png','.txt')
+imgpath = 'data/train/images/10002.PNG'
+labpath = imgpath.replace('images', 'labels').replace('JPEGImages', 'labels').replace('.jpg', '.txt').replace('.PNG','.txt')
 label = torch.zeros(50*5)
 if os.path.getsize(labpath):
     tmp = torch.from_numpy(np.loadtxt(labpath))

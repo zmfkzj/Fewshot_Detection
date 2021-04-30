@@ -265,9 +265,11 @@ class listDataset(Dataset):
     @staticmethod
     def get_labpath(imgpath):
         subdir = 'labels'
-        labpath = imgpath.replace('images', subdir) \
+        divide_index = imgpath.find('JPEGImages')+11
+        imgpath2 = imgpath[:divide_index] + imgpath[divide_index:].replace('/','@_')
+        labpath = imgpath2.replace('images', subdir) \
                          .replace('JPEGImages', subdir) \
-                         .replace('.jpg', '.txt').replace('.png','.txt')
+                         .replace('.jpg', '.txt').replace('.PNG','.txt')
         return labpath
 
     @staticmethod
@@ -472,16 +474,18 @@ class MetaDataset(Dataset):
     @staticmethod
     def get_labpath(imgpath, cls_name):
         if cfg.data == 'voc':
-            labpath = imgpath.replace('images', 'labels_1c/{}'.format(cls_name)) \
+            divide_index = imgpath.find('JPEGImages')+11
+            imgpath2 = imgpath[:divide_index] + imgpath[divide_index:].replace('/','@_')
+            labpath = imgpath2.replace('images', 'labels_1c/{}'.format(cls_name)) \
                              .replace('JPEGImages', 'labels_1c/{}'.format(cls_name)) \
-                             .replace('.jpg', '.txt').replace('.png','.txt')
+                             .replace('.jpg', '.txt').replace('.PNG','.txt')
         else:
             if 'train2014' in imgpath:
                 labpath = imgpath.replace('images/train2014', 'labels_1c/train2014/{}'.format(cls_name)) \
-                                 .replace('.jpg', '.txt').replace('.png','.txt')
+                                 .replace('.jpg', '.txt').replace('.PNG','.txt')
             elif 'val2014' in imgpath:
                 labpath = imgpath.replace('images/val2014', 'labels_1c/val2014/{}'.format(cls_name)) \
-                                 .replace('.jpg', '.txt').replace('.png','.txt')
+                                 .replace('.jpg', '.txt').replace('.PNG','.txt')
             else:
                 raise NotImplementedError("Image path note recognized!")
 

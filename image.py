@@ -232,8 +232,8 @@ def load_label(labpath, w, h, flip, dx, dy, sx, sy):
 
 
 def load_data_detection(imgpath, labpath, shape, jitter, hue, saturation, exposure, data_aug=True):
-    # labpath = imgpath.replace('images', 'labels').replace('JPEGImages', 'labels').replace('.jpg', '.txt').replace('.png','.txt')
-    # labpath = imgpath.replace('images', 'labels_1c/aeroplane').replace('JPEGImages', 'labels_1c/aeroplane').replace('.jpg', '.txt').replace('.png','.txt')
+    # labpath = imgpath.replace('images', 'labels').replace('JPEGImages', 'labels').replace('.jpg', '.txt').replace('.PNG','.txt')
+    # labpath = imgpath.replace('images', 'labels_1c/aeroplane').replace('JPEGImages', 'labels_1c/aeroplane').replace('.jpg', '.txt').replace('.PNG','.txt')
 
     ## data augmentation
     img = Image.open(imgpath).convert('RGB')

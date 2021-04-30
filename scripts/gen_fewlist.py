@@ -4,15 +4,16 @@ import os
 import numpy as np
 from os import path
 
-classes = ["aeroplane", "bicycle", "bird", "boat", "bottle",
-           "bus", "car", "cat", "chair", "cow", "diningtable",
-           "dog", "horse", "motorbike", "person", "pottedplant",
-           "sheep", "sofa", "train", "tvmonitor"]
+# classes = ["aeroplane", "bicycle", "bird", "boat", "bottle",
+#            "bus", "car", "cat", "chair", "cow", "diningtable",
+#            "dog", "horse", "motorbike", "person", "pottedplant",
+#            "sheep", "sofa", "train", "tvmonitor"]
+classes = [ 'Bolt', 'Plier', 'Wrench', 'Washer', 'Nail','Tag', 'LuggageTag', 'AdjustableClamp', 'Nut', 'BoltNutSet', 'AdjustableWrench', 'MetalSheet', 'Hose', ]
 
 # few_nums = [1, 10]
 few_nums = [1, 2, 3, 5, 10]
 # few_nums = [20]
-DROOT = '/home/bykang/voc'
+DROOT = '/home/tmdocker/host/Code/Fewshot_Detection/data'
 root =  DROOT + '/voclist/'
 rootfile =  DROOT + '/voc_train.txt'
 
@@ -20,7 +21,7 @@ def is_valid(imgpath, cls_name):
     imgpath = imgpath.strip()
     labpath = imgpath.replace('images', 'labels_1c/{}'.format(cls_name)) \
                          .replace('JPEGImages', 'labels_1c/{}'.format(cls_name)) \
-                         .replace('.jpg', '.txt').replace('.png','.txt')
+                         .replace('.jpg', '.txt').replace('.PNG','.txt')
     if os.path.getsize(labpath):
         return True
     else:
@@ -56,19 +57,27 @@ def get_bbox_fewlist(rootfile, shot):
     random.seed(2018)
     cls_lists = [[] for _ in range(len(classes))]
     cls_counts = [0] * len(classes)
+    start = 0
     while min(cls_counts) < shot:
         imgpath = random.sample(names, 1)[0]
-        labpath = imgpath.strip().replace('images', 'labels') \
+        divide_index = imgpath.find('JPEGImages')+11
+        imgpath2 = imgpath[:divide_index] + imgpath[divide_index:].replace('/','@_')
+        labpath = imgpath2.strip().replace('images', 'labels') \
                                  .replace('JPEGImages', 'labels') \
-                                 .replace('.jpg', '.txt').replace('.png','.txt')
-        # To avoid duplication
-        names.remove(imgpath)
-
+                                 .replace('.jpg', '.txt').replace('.PNG','.txt')
         if not os.path.getsize(labpath):
             continue
         # Load converted annotations
         bs = np.loadtxt(labpath)
         bs = np.reshape(bs, (-1, 5))
+
+        if start<shot and bs.shape[0] < 2:
+            continue
+        start += 1
+
+        # To avoid duplication
+        names.remove(imgpath)
+
         if bs.shape[0] > 3:
             continue
 
