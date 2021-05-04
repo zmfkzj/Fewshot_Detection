@@ -28,7 +28,7 @@ voc_classes = load_classes('voc')
 def get_labelpath(imgpath):
     return imgpath.strip().replace('images', 'labels') \
                           .replace('JPEGImages', 'labels') \
-                          .replace('.jpg', '.txt').replace('.png','.txt')
+                          .replace('.jpg', '.txt').replace('.PNG','.txt')
 
 
 def is_valid(name, validids, clean=True):

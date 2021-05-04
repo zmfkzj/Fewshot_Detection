@@ -175,7 +175,7 @@ def valid(datacfg, darknetcfg, learnetcfg, weightfile, outfile, use_baserw=False
                         cls_conf = box[5+2*j]
                         cls_id = box[6+2*j]
                         prob =det_conf * cls_conf
-                        fps[i].write('%s %f %f %f %f %f\n' % (imgid, prob, x1, y1, x2, y2))
+                        fps[i].write('%s %f %f %f %f %f\n' % (imgpath, prob, x1, y1, x2, y2))
 
     for i in range(n_cls):
         fps[i].close()

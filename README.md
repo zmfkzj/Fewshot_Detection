@@ -15,7 +15,7 @@ Our code is based on  [https://github.com/marvis/pytorch-yolo2](https://github.c
 ## Detection Examples (3-shot)
 
 <div align=center>
-<img src="https://user-images.githubusercontent.com/8370623/67256301-27d48e00-f43b-11e9-8348-b2b3fd1f5e99.png" width="740">
+<img src="https://user-images.githubusercontent.com/8370623/67256301-27d48e00-f43b-11e9-8348-b2b3fd1f5e99.PNG" width="740">
 </div>
 
 <div align=center>
@@ -24,7 +24,7 @@ Sample novel class detection results with 3-shot training bounding boxes, on PAS
 
 ## Model
 <div align=center>
-<img src="https://user-images.githubusercontent.com/8370623/67256408-ad583e00-f43b-11e9-806e-47d79acecaed.png" width="740">
+<img src="https://user-images.githubusercontent.com/8370623/67256408-ad583e00-f43b-11e9-806e-47d79acecaed.PNG" width="740">
 </div>
 
 The architecture of our proposed few-shot detection model. It consists of a meta feature extractor and a reweighting module. The feature extractor follows the one-stage detector architecture and directly regresses the objectness score (o), bounding box location (x, y, h, w) and classification score (c). The reweighting module is trained to map support samples of N classes to N reweighting vectors, each responsible for modulating the meta features to detect the objects from the corresponding class. A softmax based classification score normalization is imposed on the final output.

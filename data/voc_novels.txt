@@ -1,4 +1,4 @@
-bird,bus,cow,motorbike,sofa
+Tag,AdjustableClamp,Nut,BoltNutSet,AdjustableWrench,MetalSheet,Hose
 aeroplane,bottle,cow,horse,sofa
 boat,cat,motorbike,sheep,sofa
 bicycle,bird,motorbike,train,tvmonitor

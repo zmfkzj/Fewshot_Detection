@@ -16,14 +16,10 @@ def load_classes(data='voc'):
         classes = [l.strip() for l in f.readlines()]
     return classes
 
-__C.voc_classes = ["aeroplane", "bicycle", "bird", "boat", "bottle",
-            "bus", "car", "cat", "chair", "cow", "diningtable",
-            "dog", "horse", "motorbike", "person", "pottedplant",
-            "sheep", "sofa", "train", "tvmonitor"]
-
-__C.coco_classes = load_classes(data='coco')
-__C.vocids_in_coco = [__C.coco_classes.index(c) for c in __C.voc_classes]
-__C.cocoonly_ids = [i for i in range(len(__C.coco_classes)) if i not in __C.vocids_in_coco]
+__C.voc_classes = [ 'Bolt', 'Plier', 'Wrench', 'Washer', 'Nail', 'LuggageTag', 'Tag', 'AdjustableClamp', 'Nut', 'BoltNutSet', 'AdjustableWrench', 'MetalSheet', 'Hose']
+# __C.coco_classes = load_classes(data='coco')
+# __C.vocids_in_coco = [__C.coco_classes.index(c) for c in __C.voc_classes]
+# __C.cocoonly_ids = [i for i in range(len(__C.coco_classes)) if i not in __C.vocids_in_coco]
 
 # Maximum number of bboxes per category
 __C.max_boxes = 50

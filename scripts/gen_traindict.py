@@ -12,7 +12,7 @@ novel_classes = [ 'Tag', 'AdjustableClamp', 'Nut', 'BoltNutSet', 'AdjustableWren
 n_novel = len(novel_classes)
 
 
-few_nums = [1, 2, 3, 5, 10]
+few_nums = [1, 2, 3, 5, 10, 243]
 DROOT = '/home/tmdocker/host/Code/Fewshot_Detection/data'
 PROOT = '/home/tmdocker/host/Code/Fewshot_Detection'
 root = DROOT + '/voclist/'
