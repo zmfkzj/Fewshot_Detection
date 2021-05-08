@@ -8,7 +8,7 @@ from os import path
 #            "bus", "car", "cat", "chair", "cow", "diningtable",
 #            "dog", "horse", "motorbike", "person", "pottedplant",
 #            "sheep", "sofa", "train", "tvmonitor"]
-classes = [ 'Bolt', 'Plier', 'Wrench', 'Washer', 'Nail','Tag', 'LuggageTag', 'AdjustableClamp', 'Nut', 'BoltNutSet', 'AdjustableWrench', 'MetalSheet', 'Hose']
+classes = [ 'Bolt', 'Plier', 'Wrench', 'Washer', 'Nail', 'LuggageTag', 'Tag','AdjustableClamp', 'Nut', 'BoltNutSet', 'AdjustableWrench', 'MetalSheet', 'Hose']
 
 # few_nums = [1, 10]
 few_nums = [1, 2, 3, 5, 10, 243]
